@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+
+    body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #333; /* Background color fallback */
+  background-image: linear-gradient(100deg, #575656, #062e3f);
+    background-size: cover; /* Ensures the background covers the entire page */
+  color: #000000;
+  height: 100vh; /* Ensures the body takes up the full height */
+  margin: 0; /* Removes default margin */
+}
+
+.search-container {
+  background-color: #FFF;
+  position: absolute; /* Use absolute positioning */
+  border-radius: 30px;
+  padding: 3px 50px 3px 10px;
+  width: 30%;
+  /* top: 10px; Adjust this value for how far from the top you want it */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for element's own width */
+  margin-top: 20px;
+
+}
+
+#userId {
+  background-color: transparent;
+  outline: none;
+  height: 35px;
+  font-size: 18px;
+  border: 0;
+  width: 450px;
+  /* margin-right: 500px; */
+}  
+
+
+/* General */
+input::placeholder {
+  /* position: absolute; */
+  /* top: 10px; Adjust this value for how far from the top you want it */
+  /* left: 50%;  */
+
+  text-align: center;
+  color: gray;
+}
+
+.addbutton {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  background-color: tomato;
+  border-radius: 50%;
+  border: 0;
+  color: #FFF;
+  width: 35px;
+  height: 35px;
+  outline: 0;
+}
+
+
+
+/* input {
+    padding: 15px;
+    font-size: 18px;
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 30%;
+    border: 3px solid #237c40;
+    
+}
+
+button {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    background-color: #C00;
+    border-radius: 50%;
+    border: 0;
+    color: #FFF;
+    width: 35px;
+    height: 35px;
+    outline: 0;
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #00c542;
+    color: #ffffff;
+    border-radius: 5px;
+
+} */
+
+button:hover{
+    background-color: rgb(212, 62, 35);
+}
+
+h1{
+  display: inline-block; /* Ensures the width wraps to the text content */
+  border-bottom: 2px solid #fff;
+  /* border-right: 5000px; */
+  /* padding-right: 200p ; */
+  left: 500px;
+  right: 450px;
+  top: 100px;
+  color: white;
+  position: absolute;
+
+}
+.taskdiv{
+  display: flex;
+  align-items: center;
+}
+#tasklist {
+  /* left: 500px;
+  right: 500px;
+  top: 180px;   
+  position: absolute; */
+  
+
+    /* padding-left: 15px;
+    padding-right: 15px; */
+    text-transform: capitalize;
+   
+}
+
+.task {
+    display: flex;
+    align-items:baseline;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #fff;
+}
+
+.task span {
+    margin-left: 10px;
+    font-size: 20px;
+    color: white;
+    text-align: left;
+
+}
+
+.delete-btn {
+    /* display: flex;
+    align-items:end; */
+    margin-left: auto;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete-btn i {
+    font-size: 16px;
+}
+
+.delete-btn:hover{
+  background-color: rgb(163, 48, 48);
+
+}
+
+
+.chkbox input[type="checkbox"] {
+      display: none; /* Hide the default checkbox */
+      
+    }
+
+/* .chkbox {
+    margin-right: auto;
+} */
+
+.box{
+  position: absolute;
+  border-style:hidden;
+  left: 500px;
+  right: 450px;
+  top: 210px;  
+  border-radius: 20px;
+  /* transform: translateX(-50%); Adjust for element's own width */
+
+}
+.function-box {
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Aligns items vertically centered */
+  position: absolute;
+  top: 165px;
+  right: 440px;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+}
+
+.clearbutton {
+  background-color: red;
+  color: #FFF;
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px; /* Adds space between buttons */
+}
+
+.clearbutton:hover {
+  background-color: rgb(131, 18, 18);
+}
+
+
+.search-container2 {
+  display: flex; /* Enables flexbox */
+  align-items: center; /* Aligns items vertically centered */
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+}
+
+.searchTask {
+  background-color: red;
+  color: #FFF;
+  padding: 6px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px; /* Adds space between buttons */
+}
+
+.searchTask:hover {
+  background-color: rgb(131, 18, 18);
+}
+
+/* Hide the input initially */
+.search-input {
+  width: 0;
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+/* When input is expanded */
+.search-input.expand {
+  width: 200px;
+  opacity: 1;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+<!--   <button id="btn">Click</button>
+
+  <script>
+    // Ensure the variable name is unique and declared only once
+    const btnElement = document.getElementById('btn');
+
+    btnElement.addEventListener('click', function() {
+      alert("hello");
+    });
+  </script> -->
+  
+  
+  <div class="search-container">
+    <input type='text' id='userId' placeholder='Enter task here' maxlength="20">
+  <button class="addbutton" id='btn'><i class="fa-solid fa-plus"></i>
+  </button>
+  
+  </div>
+
+  <div class="bigBox">
+
+    <h1>Task List
+    </h1>
+    <div class="function-box">
+      <button id='clearAll' class="clearbutton">Clear All</i></button>
+
+      <div class="search-container2">
+        <button id="searchId" class="searchTask" onclick="toggleSearch()"><i class="fa fa-search"></i></button>
+        <input type="text" class="search-input" placeholder="Search...">
+      </div>
+
+    </div>
+    
+    
+
+    <div class="box">
+      
+      <div id="tasklist">
+      
+      </div>
+
+    </div>
+
+  </div>
+  
+
+
+<script src="main.js">
+
+</script>
+
+</body>
+</html>
+
+
